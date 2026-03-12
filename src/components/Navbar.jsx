@@ -6,7 +6,7 @@ export default function Navbar() {
     <nav style={styles.nav}>
       <NavLink to="/" style={styles.brand}>
         <Heart size={18} fill="#16a34a" color="#16a34a" />
-        <span style={styles.brandText}>Our Story</span>
+        <span style={styles.brandText}>Natalie and Diya :)</span>
       </NavLink>
       <div style={styles.links}>
         {[

@@ -1,16 +1,18 @@
 import { useNavigate } from 'react-router-dom'
-import { Heart, Image, MapPin, CheckSquare } from 'lucide-react'
+import { Image, MapPin, CheckSquare } from 'lucide-react'
 
 export default function Home() {
   const navigate = useNavigate()
 
   return (
     <div style={styles.page}>
-      <div style={styles.hero}>
-        <div style={styles.heartIcon}>
-          <Heart size={64} fill="#16a34a" color="#16a34a" />
-        </div>
-        <h1 style={styles.title}>Our Love Story</h1>
+      {/* Full-screen background photo */}
+      <div style={styles.bg} />
+      <div style={styles.overlay} />
+
+      {/* Content */}
+      <div style={styles.content}>
+        <h1 style={styles.title}>Natalie and Diya's Website :)</h1>
         <p style={styles.subtitle}>
           A collection of our precious moments, adventures,<br />
           and dreams that make our journey together special.
@@ -36,33 +38,48 @@ export default function Home() {
 
 const styles = {
   page: {
+    position: 'relative',
     minHeight: 'calc(100vh - 57px)',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    overflow: 'hidden',
   },
-  hero: {
+  bg: {
+    position: 'absolute',
+    inset: 0,
+    backgroundImage: 'url(/gallery/IMG_8456.JPG)',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center top',
+    zIndex: 0,
+  },
+  overlay: {
+    position: 'absolute',
+    inset: 0,
+    background: 'rgba(0, 0, 0, 0.38)',
+    zIndex: 1,
+  },
+  content: {
+    position: 'relative',
+    zIndex: 2,
     textAlign: 'center',
     padding: '40px 24px',
-    maxWidth: 600,
-  },
-  heartIcon: {
-    marginBottom: 24,
-    display: 'flex',
-    justifyContent: 'center',
+    maxWidth: 620,
   },
   title: {
     fontSize: 48,
     fontWeight: '800',
-    color: '#1a2e1a',
+    color: '#fff',
     marginBottom: 16,
     letterSpacing: '-1px',
+    textShadow: '0 2px 12px rgba(0,0,0,0.4)',
   },
   subtitle: {
-    fontSize: 16,
-    color: '#555',
+    fontSize: 17,
+    color: 'rgba(255,255,255,0.9)',
     lineHeight: 1.6,
     marginBottom: 36,
+    textShadow: '0 1px 6px rgba(0,0,0,0.3)',
   },
   buttons: {
     display: 'flex',
@@ -82,5 +99,6 @@ const styles = {
     fontSize: 14,
     cursor: 'pointer',
     transition: 'transform 0.15s, opacity 0.15s',
+    boxShadow: '0 4px 14px rgba(0,0,0,0.25)',
   },
 }
