@@ -41,7 +41,7 @@ export default function BucketList() {
   const pct = Math.round((progress / ITEMS.length) * 100)
 
   return (
-    <div style={styles.page}>
+    <div className="bucket-page">
       <div style={styles.header}>
         <h1 style={styles.title}>Our Bucket List</h1>
         <p style={styles.subtitle}>Dreams we'll make come true together</p>
@@ -81,7 +81,7 @@ export default function BucketList() {
       </div>
 
       {/* Items */}
-      <div style={styles.list}>
+      <div className="bucket-list">
         {filtered.map((item) => {
           const done = checked.has(item.id)
           const catStyle = CATEGORY_COLORS[item.category]
@@ -112,7 +112,7 @@ export default function BucketList() {
 }
 
 const styles = {
-  page: { padding: '40px 32px', maxWidth: 720, margin: '0 auto' },
+  page: {},
   header: { textAlign: 'center', marginBottom: 32 },
   title: { fontSize: 36, fontWeight: '800', color: '#1a2e1a', marginBottom: 8 },
   subtitle: { color: '#777', fontSize: 15 },
@@ -125,7 +125,7 @@ const styles = {
   progressText: { fontSize: 12, color: '#888', textAlign: 'center' },
   tabs: { display: 'flex', gap: 8, marginBottom: 20, flexWrap: 'wrap' },
   tab: { padding: '7px 14px', borderRadius: 50, fontSize: 13, fontWeight: '500', cursor: 'pointer', transition: 'all 0.2s' },
-  list: { display: 'flex', flexDirection: 'column', gap: 12 },
+  list: {},
   item: { background: 'rgba(255,255,255,0.9)', borderRadius: 14, padding: '16px 18px', display: 'flex', gap: 14, alignItems: 'flex-start', boxShadow: '0 2px 8px rgba(0,0,0,0.04)', transition: 'opacity 0.3s' },
   circle: { width: 24, height: 24, borderRadius: '50%', border: '2px solid #ccc', cursor: 'pointer', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: 2, transition: 'all 0.2s' },
   itemBody: { flex: 1 },

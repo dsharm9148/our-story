@@ -74,14 +74,14 @@ export default function Places() {
   const [selected, setSelected] = useState(null)
 
   return (
-    <div style={styles.page}>
+    <div className="places-page">
       <div style={styles.header}>
         <h1 style={styles.title}>Our Adventure Map</h1>
         <p style={styles.subtitle}>Places we've explored together and destinations we dream about</p>
       </div>
 
       {/* Stats */}
-      <div style={styles.stats}>
+      <div className="places-stats">
         <div style={{ ...styles.stat, background: '#f0fdf4', border: '1px solid #bbf7d0' }}>
           <CheckCircle size={28} color="#16a34a" />
           <span style={{ ...styles.statNum, color: '#16a34a' }}>{visited.length}</span>
@@ -104,7 +104,7 @@ export default function Places() {
         <h2 style={styles.sectionTitle}>
           <CheckCircle size={20} color="#16a34a" /> Places We've Been
         </h2>
-        <div style={styles.cards}>
+        <div className="places-cards">
           {visited.map((place) => (
             <div key={place.id} style={styles.card} onClick={() => setSelected(place)}>
               <div style={styles.cardHeader}>
@@ -126,7 +126,7 @@ export default function Places() {
         <h2 style={styles.sectionTitle}>
           <MapPin size={20} color="#0284c7" /> Coming Up
         </h2>
-        <div style={styles.cards}>
+        <div className="places-cards">
           {dreams.map((place) => (
             <div key={place.id} style={styles.card} onClick={() => setSelected(place)}>
               <div style={styles.cardHeader}>
@@ -169,17 +169,17 @@ export default function Places() {
 }
 
 const styles = {
-  page: { padding: '40px 32px', maxWidth: 860, margin: '0 auto' },
+  page: {},
   header: { textAlign: 'center', marginBottom: 36 },
   title: { fontSize: 36, fontWeight: '800', color: '#1a2e1a', marginBottom: 8 },
   subtitle: { color: '#666', fontSize: 15 },
-  stats: { display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginBottom: 40 },
+  stats: { marginBottom: 40 },
   stat: { borderRadius: 16, padding: '20px 16px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 },
   statNum: { fontSize: 28, fontWeight: '800' },
   statLabel: { fontSize: 13, color: '#555', fontWeight: '500' },
   section: { marginBottom: 32 },
   sectionTitle: { fontSize: 18, fontWeight: '700', color: '#1a2e1a', marginBottom: 16, display: 'flex', alignItems: 'center', gap: 8 },
-  cards: { display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 14 },
+  cards: {},
   card: { background: 'rgba(255,255,255,0.85)', borderRadius: 14, padding: '16px 18px', border: '1px solid rgba(0,0,0,0.06)', cursor: 'pointer', boxShadow: '0 2px 8px rgba(0,0,0,0.04)', transition: 'box-shadow 0.2s, transform 0.2s' },
   cardHeader: { display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 6 },
   cardName: { fontWeight: '700', fontSize: 16, color: '#1a2e1a' },

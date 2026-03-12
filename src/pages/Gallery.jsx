@@ -96,9 +96,8 @@ export default function Gallery() {
 
 const styles = {
   page: {
-    padding: '40px 32px',
-    maxWidth: 960,
-    margin: '0 auto',
+    padding: '40px 16px 16px',
+    maxWidth: '100%',
   },
   header: {
     textAlign: 'center',

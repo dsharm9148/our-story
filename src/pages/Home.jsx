@@ -6,11 +6,11 @@ export default function Home() {
 
   return (
     <div style={styles.page}>
-      {/* Full-screen background photo */}
-      <div style={styles.bg} />
+      {/* Full image — natural height, scrollable */}
+      <img src="/gallery/IMG_8456.JPG" alt="Natalie and Diya" style={styles.photo} />
       <div style={styles.overlay} />
 
-      {/* Content */}
+      {/* Content pinned to top of image */}
       <div style={styles.content}>
         <h1 style={styles.title}>Natalie and Diya's Website :)</h1>
         <p style={styles.subtitle}>
@@ -39,31 +39,27 @@ export default function Home() {
 const styles = {
   page: {
     position: 'relative',
-    minHeight: 'calc(100vh - 57px)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'hidden',
+    width: '100%',
   },
-  bg: {
-    position: 'absolute',
-    inset: 0,
-    backgroundImage: 'url(/gallery/IMG_8456.JPG)',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center top',
-    zIndex: 0,
+  photo: {
+    display: 'block',
+    width: '100%',
+    height: 'auto',
   },
   overlay: {
     position: 'absolute',
     inset: 0,
-    background: 'rgba(0, 0, 0, 0.38)',
-    zIndex: 1,
+    background: 'linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0) 100%)',
   },
   content: {
-    position: 'relative',
+    position: 'absolute',
+    top: '5%',
+    left: '50%',
+    transform: 'translateX(-50%)',
     zIndex: 2,
     textAlign: 'center',
-    padding: '40px 24px',
+    width: '100%',
+    padding: '0 24px',
     maxWidth: 620,
   },
   title: {

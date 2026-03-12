@@ -14,3 +14,64 @@ body {
 #root {
   min-height: 100vh;
 }
+
+/* Places page */
+.places-page {
+  padding: 40px 48px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.places-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.places-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+/* Bucket list page */
+.bucket-page {
+  padding: 40px 48px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.bucket-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .places-page,
+  .bucket-page {
+    padding: 24px 16px;
+  }
+
+  .places-cards,
+  .bucket-list {
+    grid-template-columns: 1fr;
+  }
+
+  .places-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .places-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bucket-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
