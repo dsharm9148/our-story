@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import Gallery from './pages/Gallery'
 import Places from './pages/Places'
 import BucketList from './pages/BucketList'
+import Auth from './pages/Auth'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/places" element={<Places />} />
         <Route path="/bucket-list" element={<BucketList />} />
+        <Route path="/auth" element={<Auth />} />
       </Routes>
     </BrowserRouter>
   )

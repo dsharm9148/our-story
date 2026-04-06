@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Sparkles, Heart, Star, Zap } from 'lucide-react'
 
 const ITEMS = [
@@ -24,8 +24,19 @@ const CATEGORY_COLORS = {
 const TABS = ['All', 'Adventure', 'Milestone', 'Experience', 'Dream']
 
 export default function BucketList() {
-  const [checked, setChecked] = useState(new Set())
+  const [checked, setChecked] = useState(() => {
+    try {
+      const saved = localStorage.getItem('bucketListChecked')
+      return saved ? new Set(JSON.parse(saved)) : new Set()
+    } catch {
+      return new Set()
+    }
+  })
   const [activeTab, setActiveTab] = useState('All')
+
+  useEffect(() => {
+    localStorage.setItem('bucketListChecked', JSON.stringify([...checked]))
+  }, [checked])
 
   const toggle = (id) => {
     setChecked((prev) => {
@@ -35,7 +46,11 @@ export default function BucketList() {
     })
   }
 
-  const filtered = activeTab === 'All' ? ITEMS : ITEMS.filter((i) => i.category === activeTab)
+  const baseFiltered = activeTab === 'All' ? ITEMS : ITEMS.filter((i) => i.category === activeTab)
+  const filtered = [
+    ...baseFiltered.filter((i) => !checked.has(i.id)),
+    ...baseFiltered.filter((i) => checked.has(i.id)),
+  ]
   const count = (cat) => ITEMS.filter((i) => i.category === cat).length
   const progress = checked.size
   const pct = Math.round((progress / ITEMS.length) * 100)
